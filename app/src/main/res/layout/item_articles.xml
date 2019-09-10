@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="obj"
+            type="com.tstask.models.ArticleModel" />
+
+        <variable
+            name="viewModel"
+            type="com.tstask.viewmodel.ArticlesViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:onClick="@{() -> viewModel.onItemClick(obj)}"
+        android:padding="@dimen/ten_dp">
+
+        <LinearLayout
+            android:id="@+id/linBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/imgRight"
+            android:onClick="@{() -> viewModel.onItemClick(obj)}"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtArticleName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onItemClick(obj)}"
+                android:text="@{obj.title}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/fifteen_sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtArticleDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/seven_dp"
+                android:onClick="@{() -> viewModel.onItemClick(obj)}"
+                android:text="@{obj.abstract}"
+                android:textColor="@color/color_vvvDarkGrey"
+                android:textSize="@dimen/twelve_sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtBy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onItemClick(obj)}"
+                android:paddingTop="@dimen/seven_dp"
+                android:paddingBottom="@dimen/seven_dp"
+                android:text="@{obj.byline}"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/fifteen_sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/ten_dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtArticleSource"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_toStartOf="@+id/txtDate"
+                    android:onClick="@{() -> viewModel.onItemClick(obj)}"
+                    android:text="@{obj.source}"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/fifteen_sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/fifteen_dp"
+                    android:drawableStart="@drawable/ic_cal"
+                    android:drawablePadding="@dimen/five_dp"
+                    android:gravity="center"
+                    android:onClick="@{() -> viewModel.onItemClick(obj)}"
+                    android:text="@{obj.publishedDate}"
+                    android:textColor="@color/color_vvvDarkGrey"
+                    android:textSize="@dimen/twelve_sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgRight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/ic_right" />
+
+    </RelativeLayout>
+
+</layout>
